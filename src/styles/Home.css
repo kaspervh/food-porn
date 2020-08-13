@@ -1,0 +1,45 @@
+/*
+  Handles styling of the main page image
+*/
+
+.big_image{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url('https://images.pexels.com/photos/4040806/pexels-photo-4040806.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4040806.jpg&fm=jpg');
+  background-size: cover;
+  box-shadow: 0px 1px 5px 0px #bb9aa4
+}
+
+/*Handles styling of the dsplayed recipies*/
+
+.recipies-container{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;   
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0px;
+}
+
+.recipies-container .recepie_box{
+  height: 600px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  overflow: none;
+  margin: 10px 20px;
+  transition: all .4s ease-in-out; 
+}
+
+.recipies-container .recepie_box:hover{
+  box-shadow: 2px 2px 30px 1px #bb9aa4;
+  cursor: pointer;
+}
+
+.recipies-container .recepie_box img{
+  height: 100%;
+  width:100%;
+}
