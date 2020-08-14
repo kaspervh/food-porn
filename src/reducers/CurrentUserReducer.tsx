@@ -31,6 +31,7 @@ const CurrentUserReducer = (state:Object[] = loadCurrentUser(), action:any) => {
   switch(action.type){
     case 'LOGINUSER':
       saveToLocalStorage(action.payload);
+      console.log(action.payload)
       return state = action.payload;
     case 'LOGOUTUSER':
       destroyCurrentUser()

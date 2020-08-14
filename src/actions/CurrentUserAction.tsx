@@ -1,8 +1,9 @@
 export const CurrentUserAction = (email:string, password:string) => {
+  console.log(email);
   return( async (dispatch:any) => {
-    const currentUser = await fetch('http://localhost:1337//auth/login', {
+    const currentUser = await fetch('http://localhost:1337/auth/login', {
       method: "POST",
-      headers: {"ContentType": "application/json"},
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         email: email,
         password: password
