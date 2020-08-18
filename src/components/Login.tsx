@@ -4,11 +4,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 const Login = () => {
-  let history:any = useHistory();
-  const dispatch:any = useDispatch();
+  let history = useHistory();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const currentUser:Object[] = useSelector((state:any) => state.CurrentUserReducer);
+  const currentUser = useSelector((state:any) => state.CurrentUserReducer);
 
   useEffect(() => {
     if(currentUser.length !== 0){
@@ -27,7 +27,7 @@ const Login = () => {
         <h1>Log Ind</h1>
         <input type="text" className="login-input" value={email} onChange={(e:any) => setEmail(e.target.value)} placeholder="Email" />
         <input type="password" className="login-input" value={password} onChange={(e:any) => setPassword(e.target.value)} placeholder="Kodeord" />
-        <button className="login-button" onClick={(e:any) => signIn(e)}>Log Ind</button>
+        <button className="login-button" onClick={e => signIn(e)}>Log Ind</button>
       </div>
     </div>
   )

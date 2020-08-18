@@ -1,4 +1,4 @@
-const saveToLocalStorage = (payload:any) => {
+const saveToLocalStorage = (payload:any ) => {
   try {
     if(payload.message === 'user is loged in'){
       const localStoragePayload = JSON.stringify(payload);
@@ -27,7 +27,7 @@ const destroyCurrentUser = () => {
   }
 }
 
-const CurrentUserReducer = (state:Object[] = loadCurrentUser(), action:any) => {
+const CurrentUserReducer = (state:any = loadCurrentUser(), action:any) => {
   switch(action.type){
     case 'LOGINUSER':
       saveToLocalStorage(action.payload);
