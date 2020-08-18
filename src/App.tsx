@@ -4,6 +4,7 @@ import NavigationMenu from './components/shared/NavigationMenu';
 import Home from './components/Home';
 import Footer from './components/shared/Footer';
 import Login from './components/Login';
+import NewRecipe from './components/recipes/NewRecipe'
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home}/>
             <Route path='/login' exact component={Login}/>
+            <Route path='/opskrifter/ny' exact component={NewRecipe}/>
           </Switch>
         </div>
       </Router>
