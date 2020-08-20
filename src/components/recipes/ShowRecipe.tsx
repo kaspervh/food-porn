@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, Link} from 'react-router-dom';
-import '../../styles/ShowRecipe.css'
+
 import {GetRecipeAction} from '../../actions/RecipesAction';
 
 
@@ -48,7 +48,7 @@ const ShowRecipe = () => {
           <h1>{recipe.headline}</h1>
           <div className="recipe_container" style={{justifyContent: 'center'}}>
             <div className="ingredients_box">
-              <h5>Ingridienser til <input type="text" value={newNumOfPeople.match(/[a-z][A-z]/) ? recipe.numOfPeople : newNumOfPeople } onChange={(e:any) => calculateIngredients(e.target.value)}/> personer</h5>
+              <h5>Ingridienser til <input type="text" style={{width: '50px', fontWeight: 'bolder'}} value={newNumOfPeople.match(/[a-z][A-z]/) ? recipe.numOfPeople : newNumOfPeople } onChange={(e:any) => calculateIngredients(e.target.value)}/> personer</h5>
               {newIngredients.map((ingredient:any) => 
                 <p>{`${ingredient.amount} ${ingredient.type} ${ingredient.product}`} <br/></p>
               )}

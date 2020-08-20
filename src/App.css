@@ -1,13 +1,9 @@
 @import url('./styles/Home.css');
 @import url('./styles/Login.css');
+@import url('./styles/ShowRecipe.css');
  
 .App {
   text-align: center;
-}
-
-.header_large{
-  font-size: 70px;
-  color: #bb9aa4;
 }
 
 .container{
@@ -21,9 +17,6 @@
   margin: 0 auto;
   width: 80%;
   margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .column{
@@ -60,7 +53,6 @@ input:focus{
 input[type=file]{
   border: none;
 }
-
 
 select:focus{
   outline: none;
