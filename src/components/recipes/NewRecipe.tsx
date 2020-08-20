@@ -27,6 +27,12 @@ const NewRecipe = () => {
     setIngredients([...ingredients, newIngredient])
   }
 
+  const removeIngredient = () => {
+    let newIngredients  = [...ingredients];
+    newIngredients.pop()
+    setIngredients(newIngredients)
+  }
+
   const setIngredient = (index:any, key:any, value:string) => {
     let items:any = [...ingredients];
     items[index][key] = value;
@@ -70,7 +76,7 @@ const NewRecipe = () => {
         <section className="column">
           <h2>Ingridienser</h2>
           <label htmlFor="Antal personer"></label>
-          <input type="text" value={numOfPeople} placeholder="Antal personer" onChange={(e:any) => setNumOfPeople(e.target.value)}/>
+          <input type="" value={numOfPeople} placeholder="Antal personer" onChange={(e:any) => setNumOfPeople(e.target.value)}/>
           {ingredients.map((ingredient, index) =>
             <div className="row" key={index}>
               <div className='column' >
@@ -81,12 +87,14 @@ const NewRecipe = () => {
                 <select name="type" value={ingredient.type} onChange={(e:any) => setIngredient(index, 'type', e.target.value)}>
                   <option value="">Vælg type ...</option>
                   <option value="stk">Stk</option>
-                  <option value="Miligram">Miligram</option>
-                  <option value="Gram">Gram</option>
-                  <option value="Kilo">Kilo</option>
-                  <option value="Mililiter">Mililiter</option>
-                  <option value="Deciliter">Deciliter</option>
-                  <option value="Liter">Liter</option>
+                  <option value="mg">Miligram</option>
+                  <option value="g">Gram</option>
+                  <option value="kg">Kilo</option>
+                  <option value="ml">Mililiter</option>
+                  <option value="dl">Deciliter</option>
+                  <option value="L">Liter</option>
+                  <option value="tsk">The ske</option>
+                  <option value="spsk">Spise ske</option>
                 </select>
               </div> 
               <div className='column'>
@@ -97,6 +105,7 @@ const NewRecipe = () => {
           )}
           
           <button className='button' onClick={(e) => addIngredient()}>Tilføj Ingridiens</button>
+          <button className='button' onClick={(e) => removeIngredient()}>Fjern sidste ingridiens</button>
           
         </section>
       

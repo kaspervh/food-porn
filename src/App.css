@@ -5,16 +5,25 @@
   text-align: center;
 }
 
+.header_large{
+  font-size: 70px;
+  color: #bb9aa4;
+}
+
 .container{
   width: 100%;
   min-height: 95vh;
   display: flex;
+  flex-direction: column;
 } 
 
 .content{
   margin: 0 auto;
   width: 80%;
   margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .column{
