@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {CurrentUserAction} from '../actions/CurrentUserAction'
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import '../styles/Login.css'
 
 const Login = () => {
   let history = useHistory();

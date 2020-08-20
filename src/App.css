@@ -1,5 +1,6 @@
 @import url('./styles/Home.css');
 @import url('./styles/Login.css');
+@import url('./styles/ShowRecipe.css');
  
 .App {
   text-align: center;
@@ -9,6 +10,7 @@
   width: 100%;
   min-height: 95vh;
   display: flex;
+  flex-direction: column;
 } 
 
 .content{
@@ -51,7 +53,6 @@ input:focus{
 input[type=file]{
   border: none;
 }
-
 
 select:focus{
   outline: none;

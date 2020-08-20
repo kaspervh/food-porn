@@ -37,6 +37,7 @@ const CurrentUserReducer = (state:any = loadCurrentUser(), action:any) => {
       destroyCurrentUser()
       return state = loadCurrentUser();
     default:
+      console.log(state)
       return state;
   }
 }

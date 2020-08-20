@@ -43,3 +43,17 @@
   height: 100%;
   width:100%;
 }
+
+.info_box{
+  height: 600px;
+  width: 400px;
+  background-color: white;
+  position: absolute;
+  z-index: 5;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.info_box:hover{
+  opacity: .8
+}

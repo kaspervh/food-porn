@@ -1,52 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {AllRecipesAction} from '../actions/AllRecipesAction';
 
 const Home = () => {
-  const [recipies] = useState([
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-    {
-    name: 'diller',
-    image: 'https://images.pexels.com/photos/1889651/pexels-photo-1889651.jpeg?cs=srgb&dl=pexels-dalila-dalprat-1889651.jpg&fm=jpg'
-    },
-
-  ])
+  const dispatch = useDispatch();
+  const recipes = useSelector((state:any) => state.AllRecipesReducer);
+  
+  useEffect(() => {
+    dispatch(AllRecipesAction())
+  },[])
 
   return(
-    <div>
+    <div className='container'>
       <div className="big_image"></div>
-
+      <br/>
       <div className="recipies-container">
-        {recipies.map((recipie, index) => 
-          <div className="recepie_box" key={index}>
-            <img src={recipie.image}/>
-          </div>
-        )}
+        {recipes.length !== 0 ?
+          recipes.map((recipe:any, index:number) => 
+          <Link to={`/opskrifter/${recipe._id}`} key={index}>
+            <div className="recepie_box">
+              <img src={recipe.thumbnail}/>
+            </div>
+          </Link>
+          
+        ): ''}
       </div>
     </div>
   )
