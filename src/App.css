@@ -1,6 +1,7 @@
 @import url('./styles/Home.css');
 @import url('./styles/Login.css');
 @import url('./styles/ShowRecipe.css');
+@import url('./styles/Home.css');
  
 .App {
   text-align: center;

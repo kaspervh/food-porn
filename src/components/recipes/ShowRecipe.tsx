@@ -10,6 +10,7 @@ const ShowRecipe = () => {
   const {recipeId} = useParams();
   const dispatch = useDispatch();
   const recipe = useSelector((state:any) => state.RecipesReducer);
+  const currentUser = useSelector((state:any) => state.CurrentUserReducer);
   const [newNumOfPeople, setNewNumOfPeople] = useState('false');
   const [newIngredients, setNewIngreedients] = useState([]);
 
@@ -49,10 +50,15 @@ const ShowRecipe = () => {
     <div className="container">
       {recipe.length !== 0 ?
       <div className="content">
-        <div className="admin-box">
-          <div className="button">Rediger opskrift</div>
-          <div className="button" onClick={(e:any) => deleteRecipe()}>Slet Opskrift</div>
-        </div>
+        {console.log(currentUser)}
+        {currentUser !== 0  ? 
+          <div className="admin-box">
+            <div className="button">Rediger opskrift</div>
+            <div className="button" onClick={(e:any) => deleteRecipe()}>Slet Opskrift</div>
+          </div>
+          : ''
+        }
+        
         <h1>{recipe.headline}</h1>
         <div className="recipe_container" style={{justifyContent: 'center'}}>
           <div className="ingredients_box">
