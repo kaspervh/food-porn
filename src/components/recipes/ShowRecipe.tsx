@@ -49,25 +49,25 @@ const ShowRecipe = () => {
     <div className="container">
       {recipe.length !== 0 ?
       <div className="content">
-          <div className="admin-box">
-            <Link to={`/opskrifter/${recipe._id}/rediger`} ><div className="button">Rediger opskrift</div></Link>
-            <div className="button" onClick={(e:any) => deleteRecipe()}>Slet Opskrift</div>
+        <div className="admin-box">
+          <div className="button">Rediger opskrift</div>
+          <div className="button" onClick={(e:any) => deleteRecipe()}>Slet Opskrift</div>
+        </div>
+        <h1>{recipe.headline}</h1>
+        <div className="recipe_container" style={{justifyContent: 'center'}}>
+          <div className="ingredients_box">
+            <h5>Ingridienser til <input type="text" style={{width: '50px', fontWeight: 'bolder'}} value={newNumOfPeople.match(/[a-z][A-z]/) ? recipe.numOfPeople : newNumOfPeople } onChange={(e:any) => calculateIngredients(e.target.value)}/> personer</h5>
+            {newIngredients.map((ingredient:any) => 
+              <p>{`${ingredient.amount} ${ingredient.type} ${ingredient.product}`} <br/></p>
+            )}
           </div>
-          <h1>{recipe.headline}</h1>
-          <div className="recipe_container" style={{justifyContent: 'center'}}>
-            <div className="ingredients_box">
-              <h5>Ingridienser til <input type="text" style={{width: '50px', fontWeight: 'bolder'}} value={newNumOfPeople.match(/[a-z][A-z]/) ? recipe.numOfPeople : newNumOfPeople } onChange={(e:any) => calculateIngredients(e.target.value)}/> personer</h5>
-              {newIngredients.map((ingredient:any) => 
-                <p>{`${ingredient.amount} ${ingredient.type} ${ingredient.product}`} <br/></p>
-              )}
-            </div>
-            <img src={recipe.images}/>
-          </div>
-          <div className="recipe_container" style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-            <p>{recipe.shortDescription}</p>
-            <br/>
-              <p>{recipe.recipe}</p>
-          </div> 
+          <img src={recipe.images}/>
+        </div>
+        <div className="recipe_container" style={{flexDirection: 'column', alignItems: 'flex-start'}}>
+          <p>{recipe.shortDescription}</p>
+          <br/>
+            <p>{recipe.recipe}</p>
+        </div> 
       </div>
       :''}
     </div>

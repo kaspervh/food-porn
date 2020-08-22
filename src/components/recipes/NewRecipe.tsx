@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
-import {SaveRecipeAction} from '../../actions/RecipesAction'
+import {SaveRecipeAction} from '../../actions/RecipesAction';
+import {useHistory} from 'react-router-dom';
 
 const NewRecipe = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [headline, setHeadline] = useState('');
   const [mealType, setMealType] = useState('');
@@ -40,7 +42,8 @@ const NewRecipe = () => {
   } 
 
   const saveRecipe = () => {
-    dispatch(SaveRecipeAction(headline, mealType, shortDescription, thumbnail, numOfPeople, image, ingredients, recipe))
+    dispatch(SaveRecipeAction(headline, mealType, shortDescription, thumbnail, numOfPeople, image, ingredients, recipe));
+    history.push('/');
   }
 
   return(
