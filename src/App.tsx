@@ -6,6 +6,7 @@ import Footer from './components/shared/Footer';
 import Login from './components/Login';
 import NewRecipe from './components/recipes/NewRecipe';
 import ShowRecipe from './components/recipes/ShowRecipe';
+import EditRecipe from './components/recipes/EditRecipe';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path='/login' exact component={Login}/>
             <Route path='/opskrifter/ny' exact component={NewRecipe}/>
             <Route path='/opskrifter/:recipeId' exact component={ShowRecipe}/>
+            <Route path='/opskrifter/:recipeId/rediger' exact component={EditRecipe}/>
           </Switch>
         </div>
       </Router>

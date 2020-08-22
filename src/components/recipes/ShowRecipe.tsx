@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams, Link} from 'react-router-dom';
+import {useParams, Link, useHistory} from 'react-router-dom';
 
-import {GetRecipeAction} from '../../actions/RecipesAction';
+import {GetRecipeAction, DeleteRecipeAction} from '../../actions/RecipesAction';
 
 
 const ShowRecipe = () => {
+  const history  = useHistory();
   const {recipeId} = useParams();
   const dispatch = useDispatch();
   const recipe = useSelector((state:any) => state.RecipesReducer);
@@ -17,10 +18,9 @@ const ShowRecipe = () => {
   },[])
 
   useEffect(() =>{
+    if(typeof recipe.massage !== 'undefined' && recipe.messge === 'recipe deleted'){history.push('/')}
     if(recipe.length !== 0){
       setNewIngreedients(recipe.ingredients)
-      console.log(recipe.ingredients)
-      console.log(newIngredients)
     }
     
   },[recipe])
@@ -40,11 +40,19 @@ const ShowRecipe = () => {
     }
   }
 
+  const deleteRecipe = async () => {
+    await dispatch(DeleteRecipeAction(recipeId))
+    history.push('/')
+  }
+
   return(
     <div className="container">
       {recipe.length !== 0 ?
       <div className="content">
-        
+          <div className="admin-box">
+            <Link to={`/opskrifter/${recipe._id}/rediger`} ><div className="button">Rediger opskrift</div></Link>
+            <div className="button" onClick={(e:any) => deleteRecipe()}>Slet Opskrift</div>
+          </div>
           <h1>{recipe.headline}</h1>
           <div className="recipe_container" style={{justifyContent: 'center'}}>
             <div className="ingredients_box">
