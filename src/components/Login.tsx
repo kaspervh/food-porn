@@ -28,7 +28,7 @@ const Login = () => {
         <h1>Log Ind</h1>
         <input type="text" className="login-input" value={email} onChange={(e:any) => setEmail(e.target.value)} placeholder="Email" />
         <input type="password" className="login-input" value={password} onChange={(e:any) => setPassword(e.target.value)} placeholder="Kodeord" />
-        <button className="login-button" onClick={e => signIn(e)}>Log Ind</button>
+        <div className="button" onClick={e => signIn(e)}>Log Ind</div>
       </div>
     </div>
   )

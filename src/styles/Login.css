@@ -33,16 +33,5 @@
   border-bottom: 1px solid pink;
 }
 
-.login-button{
-  width: 80%;
-  height:20px;
-  background-color: pink;
-  outline: none;
-  border: 0;
-  color: white;
-  box-shadow: 1px 1px 1px 1px #bb9aa4
-}
 
-.login-button:active{
-  box-shadow: none;
-}
+

@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .link{
@@ -37,4 +38,7 @@
 
 .link:hover{
   border-bottom: 1px solid #bb9aa4 ;
+}
+
+@media only screen and (max-width: 1200px){
 }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import {SaveRecipeAction, GetRecipeAction} from '../../actions/RecipesAction'
+import {UpdateRecipeAction, GetRecipeAction} from '../../actions/RecipesAction'
 import {useParams} from 'react-router-dom';
 
 const EditRecipe = () => {
@@ -62,7 +62,7 @@ const EditRecipe = () => {
   } 
 
   const saveRecipe = () => {
-    dispatch(SaveRecipeAction(headline, mealType, shortDescription, thumbnail, numOfPeople, image, ingredients, newRecipe))
+    dispatch(UpdateRecipeAction(headline, mealType, shortDescription, thumbnail, numOfPeople, image, ingredients, newRecipe))
   }
 
   return(
